@@ -99,7 +99,49 @@
       transform: translateY(-3px);
       box-shadow: 0 12px 35px #55e6b255;
     }
+.calendar-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 2px solid currentColor;
+  border-radius: 7px;
+  font-weight: 900;
+  font-size: 17px;
+  line-height: 1;
+  vertical-align: middle;
+  margin-right: 7px;
+  flex-shrink: 0;
+}
 
+.calendar-icon::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  border-top: 2px solid currentColor;
+}
+
+.calendar-icon::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 7px;
+  width: 4px;
+  height: 9px;
+  border-radius: 2px;
+  background: currentColor;
+  box-shadow: 14px 0 0 currentColor;
+}
+
+.calendar-number {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+}
     section {
       padding: 80px 20px;
     }
@@ -283,7 +325,7 @@
       </p>
 
       <div class="date">
-        📅 Sábado 7 de noviembre
+        <span class="calendar-icon" aria-hidden="true"><span class="calendar-number">7</span></span>Sábado 7 de noviembre
       </div>
 
       <br>
@@ -419,7 +461,7 @@
       <div class="schedule">
 
         <div class="schedule-item">
-          <span>📅 Fecha</span>
+          <span><span class="calendar-icon" aria-hidden="true"><span class="calendar-number">7</span></span>Fecha</span>
           <strong>Sábado 7 de noviembre</strong>
         </div>
 
