@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Americana OHA Kids</title>
+
+  <meta name="description" content="Americana OHA Kids. Juega, compite y diviértete jugando al pádel.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: white;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        radial-gradient(circle at top right, #1f8fff55, transparent 35%),
+        radial-gradient(circle at bottom left, #18d6a355, transparent 35%),
+        #07111f;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+      color: #66e3ff;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: .9;
+      font-weight: 900;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #55e6b2;
+    }
+
+    .subtitle {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 35px;
+    }
+
+    .date {
+      display: inline-block;
+      padding: 14px 22px;
+      border: 1px solid #ffffff33;
+      border-radius: 50px;
+      background: #ffffff0d;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 17px 35px;
+      border-radius: 50px;
+      background: #55e6b2;
+      color: #06111e;
+      font-weight: 900;
+      font-size: 1.1rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px #55e6b255;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 50px;
+      font-weight: 900;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: -60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      background: #101d30;
+      border: 1px solid #ffffff15;
+      border-radius: 24px;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #55e6b2;
+    }
+
+    .stat-label {
+      color: #b8c5d6;
+      font-weight: 700;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #101d30;
+      border: 1px solid #ffffff12;
+      border-radius: 25px;
+      padding: 35px 25px;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #b8c5d6;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #55e6b2, #66e3ff);
+      color: #06111e;
+      text-align: center;
+    }
+
+    .highlight h2 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      margin-bottom: 15px;
+      font-weight: 900;
+    }
+
+    .highlight p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .dark-button {
+      display: inline-block;
+      padding: 16px 32px;
+      background: #06111e;
+      color: white;
+      border-radius: 50px;
+      font-weight: 900;
+    }
+
+    .schedule {
+      display: grid;
+      gap: 15px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 25px;
+      background: #101d30;
+      border-radius: 18px;
+      border: 1px solid #ffffff12;
+    }
+
+    .schedule-item strong {
+      color: #55e6b2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #8391a4;
+      background: #040b14;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 700px) {
+
+      .stats,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        margin-top: -30px;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 60px 18px;
+      }
+
+      .schedule-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="logo">🏓 OHA PÁDEL</div>
+
+      <h1>
+        AMERICANA<br>
+        <span>OHA KIDS</span>
+      </h1>
+
+      <p class="subtitle">
+        Juega · Compite · Diviértete
+      </p>
+
+      <div class="date">
+        📅 Sábado 7 de noviembre
+      </div>
+
+      <br>
+
+      <a href="#inscripcion" class="cta">
+        QUIERO APUNTARME →
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- STATS -->
+  <section>
+
+    <div class="container">
+
+      <div class="stats">
+
+        <div class="stat">
+          <span class="stat-number">6</span>
+          <span class="stat-label">PARTIDOS</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-number">15'</span>
+          <span class="stat-label">POR PARTIDO</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-number">🏓</span>
+          <span class="stat-label">PÁDEL + DIVERSIÓN</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- COMO FUNCIONA -->
+  <section>
+
+    <div class="container">
+
+      <h2 class="section-title">
+        ¿Cómo funciona?
+      </h2>
+
+      <div class="cards">
+
+        <article class="card">
+
+          <div class="card-icon">🎾</div>
+
+          <h3>1. Juega</h3>
+
+          <p>
+            Disfruta de diferentes partidos y juega con
+            compañeros y compañeras.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="card-icon">🔥</div>
+
+          <h3>2. Compite</h3>
+
+          <p>
+            Cada partido es una nueva oportunidad para
+            competir, aprender y mejorar.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="card-icon">😄</div>
+
+          <h3>3. Diviértete</h3>
+
+          <p>
+            El objetivo principal es disfrutar del pádel,
+            conocer gente y pasarlo bien.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HIGHLIGHT -->
+  <section class="highlight">
+
+    <div class="container">
+
+      <h2>EL PÁDEL TAMBIÉN ES DIVERSIÓN</h2>
+
+      <p>
+        Una experiencia pensada para que los niños y niñas
+        disfruten de la competición en un ambiente dinámico,
+        divertido y deportivo.
+      </p>
+
+      <a href="#inscripcion" class="dark-button">
+        VER INSCRIPCIÓN
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROXIMA JORNADA -->
+  <section>
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Próxima jornada
+      </h2>
+
+      <div class="schedule">
+
+        <div class="schedule-item">
+          <span>📅 Fecha</span>
+          <strong>Sábado 7 de noviembre</strong>
+        </div>
+
+        <div class="schedule-item">
+          <span>🎾 Partidos</span>
+          <strong>6 partidos</strong>
+        </div>
+
+        <div class="schedule-item">
+          <span>⏱️ Duración</span>
+          <strong>15 minutos por partido</strong>
+        </div>
+
+        <div class="schedule-item">
+          <span>🔄 Frecuencia</span>
+          <strong>Cada 15 días</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- INSCRIPCION -->
+  <section id="inscripcion" class="highlight">
+
+    <div class="container">
+
+      <h2>¿TE APUNTAS?</h2>
+
+      <p>
+        Reserva tu plaza y ven a disfrutar de la
+        Americana OHA Kids.
+      </p>
+
+      <!--
+        AQUÍ PONDREMOS EL ENLACE REAL DE PLAYTOMIC
+        CUANDO LO TENGAMOS.
+      -->
+
+      <a href="#" class="dark-button">
+        INSCRIPCIÓN
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      <strong>OHA PÁDEL</strong>
+    </p>
+
+    <p>
+      Americana OHA Kids · Juega · Compite · Diviértete
+    </p>
+
+  </footer>
+
+</body>
+</html>
